@@ -3,38 +3,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avina Catalog</title>
+    <title>AVINA JEWELS | Jewelry Catalog Coming Soon</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500&display=swap');
+
+        :root {
+            /* Extracted from the uploaded logo */
+            --gold: #c69b4e;
+            --gold-light: #e4c27f;
+            --dark-bg: #143639; /* Deep Teal background */
+            --text-main: #FFFFFF;
+            --text-muted: #B8C7C9; /* Soft teal-grey */
+        }
+
+        * {
             margin: 0;
-            padding: 20px;
-            background-color: #f5f5f5;
+            padding: 0;
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Ambient Glow effect matched to the new teal/gold */
+        .ambient-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(198, 155, 78, 0.15) 0%, rgba(20, 54, 57, 0) 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            animation: pulse-glow 6s infinite alternate ease-in-out;
+        }
+
+        @keyframes pulse-glow {
+            0% { opacity: 0.5; transform: translate(-50%, -50%) scale(0.9); }
+            100% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+        }
+
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            color: #333;
+            position: relative;
+            z-index: 1;
             text-align: center;
+            padding: 2rem;
+            max-width: 800px;
         }
-        .content {
-            color: #666;
+
+        .logo-container {
+            margin-bottom: 2rem;
+            animation: fade-down 1.2s ease-out forwards;
+            opacity: 0;
+            transform: translateY(-20px);
+            min-height: 120px; /* Space for the logo to avoid layout shift */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-img {
+            max-width: 250px;
+            max-height: 150px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        /* Fallback logo just in case the image isn't there yet */
+        .logo-text {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: var(--text-main);
+        }
+
+        .title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 400;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, var(--gold-light), var(--gold), #A87F38);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fade-up 1.2s ease-out 0.3s forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 3.5rem;
+            font-weight: 300;
+            letter-spacing: 1px;
             line-height: 1.6;
+            animation: fade-up 1.2s ease-out 0.6s forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .notify-form {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            max-width: 500px;
+            margin: 0 auto;
+            animation: fade-up 1.2s ease-out 0.9s forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .notify-input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(198, 155, 78, 0.3);
+            border-radius: 4px;
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            outline: none;
+            backdrop-filter: blur(5px);
+        }
+
+        .notify-input:focus {
+            border-color: var(--gold);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 15px rgba(198, 155, 78, 0.15);
+        }
+
+        .notify-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .notify-btn {
+            padding: 1rem 2.5rem;
+            background: var(--gold);
+            color: var(--dark-bg);
+            border: none;
+            border-radius: 4px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 500;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .notify-btn:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(198, 155, 78, 0.2);
+        }
+
+        .decor-line {
+            width: 1px;
+            height: 100px;
+            background: linear-gradient(to bottom, rgba(198, 155, 78, 0.8), transparent);
+            margin: 3.5rem auto 0;
+            animation: scale-line 1.5s ease-out 1.2s forwards;
+            opacity: 0;
+            transform-origin: top;
+            transform: scaleY(0);
+        }
+
+        @keyframes fade-down {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fade-up {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes scale-line {
+            to { opacity: 1; transform: scaleY(1); }
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 3rem;
+            }
+            .notify-form {
+                flex-direction: column;
+                padding: 0 1rem;
+            }
+            .notify-btn {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="ambient-glow"></div>
+    
     <div class="container">
-        <h1>Welcome to Avina Catalog</h1>
-        <div class="content">
-            <p>This is the Avina Catalog homepage.</p>
+        <div class="logo-container">
+            <img src="https://avinajewels.com/_next/static/media/AVINALogo%202.429abdab.png" alt="AVINA JEWELS" class="logo-img" onerror="this.style.display='none'; document.getElementById('fallback-logo').style.display='block';">
+            <div id="fallback-logo" class="logo-text" style="display: none;">AVINA JEWELS</div>
         </div>
+        
+        <h1 class="title">Our Jewelry Catalog<br>is Coming Soon</h1>
+        
+        <p class="subtitle">We are finalizing a breathtaking collection of fine jewelry. <br> Be the first to experience brilliance and modern luxury.</p>
+        
+        <form class="notify-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing! We will notify you once the catalog is live.');">
+            <input type="email" class="notify-input" placeholder="Enter your email address" required>
+            <button type="submit" class="notify-btn">Notify Me</button>
+        </form>
+
+        <div class="decor-line"></div>
     </div>
 </body>
 </html>
