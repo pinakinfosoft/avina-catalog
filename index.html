@@ -8,12 +8,11 @@
         @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500&display=swap');
 
         :root {
-            /* Extracted from the uploaded logo */
-            --gold: #c69b4e;
-            --gold-light: #e4c27f;
-            --dark-bg: #143639; /* Deep Teal background */
-            --text-main: #FFFFFF;
-            --text-muted: #B8C7C9; /* Soft teal-grey */
+            --gold: #80011f;
+            --gold-light: #9e0226;
+            --dark-bg: #fff9eb;
+            --text-main: #1a0008;
+            --text-muted: rgba(26, 0, 8, 0.55);
         }
 
         * {
@@ -40,7 +39,7 @@
             position: absolute;
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(198, 155, 78, 0.15) 0%, rgba(20, 54, 57, 0) 70%);
+            background: radial-gradient(circle, rgba(128, 1, 31, 0.12) 0%, rgba(255, 249, 235, 0) 70%);
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -73,8 +72,8 @@
         }
 
         .logo-img {
-            max-width: 250px;
-            max-height: 150px;
+            max-width: 400px;
+            max-height: 220px;
             height: auto;
             object-fit: contain;
         }
@@ -94,7 +93,7 @@
             font-weight: 400;
             line-height: 1.1;
             margin-bottom: 1.5rem;
-            background: linear-gradient(to right, var(--gold-light), var(--gold), #A87F38);
+            background: linear-gradient(to right, #80011f, #c0022e, #80011f);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: fade-up 1.2s ease-out 0.3s forwards;
@@ -128,10 +127,10 @@
         .notify-input {
             flex: 1;
             padding: 1rem 1.5rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(198, 155, 78, 0.3);
+            background: rgba(26, 0, 8, 0.05);
+            border: 1px solid rgba(26, 0, 8, 0.2);
             border-radius: 4px;
-            color: white;
+            color: #1a0008;
             font-family: 'Outfit', sans-serif;
             font-size: 1rem;
             transition: all 0.3s ease;
@@ -142,17 +141,18 @@
         .notify-input:focus {
             border-color: var(--gold);
             background: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 0 15px rgba(198, 155, 78, 0.15);
+            box-shadow: 0 0 15px rgba(128, 1, 31, 0.3);
         }
 
         .notify-input::placeholder {
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(26, 0, 8, 0.4);
         }
 
         .notify-btn {
             padding: 1rem 2.5rem;
-            background: var(--gold);
-            color: var(--dark-bg);
+            background: #80011f;
+            color: #fff9eb;
+            border: none;
             border: none;
             border-radius: 4px;
             font-family: 'Outfit', sans-serif;
@@ -165,15 +165,15 @@
         }
 
         .notify-btn:hover {
-            background: var(--gold-light);
+            background: #9e0226;
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(198, 155, 78, 0.2);
+            box-shadow: 0 10px 20px rgba(128, 1, 31, 0.35);
         }
 
         .decor-line {
             width: 1px;
             height: 100px;
-            background: linear-gradient(to bottom, rgba(198, 155, 78, 0.8), transparent);
+            background: linear-gradient(to bottom, rgba(128, 1, 31, 0.5), transparent);
             margin: 3.5rem auto 0;
             animation: scale-line 1.5s ease-out 1.2s forwards;
             opacity: 0;
@@ -212,18 +212,36 @@
     
     <div class="container">
         <div class="logo-container">
-            <img src="https://avinajewels.com/_next/static/media/AVINALogo%202.429abdab.png" alt="AVINA JEWELS" class="logo-img" onerror="this.style.display='none'; document.getElementById('fallback-logo').style.display='block';">
+            <img src="LOGO.png" alt="AVINA JEWELS" class="logo-img" onerror="this.style.display='none'; document.getElementById('fallback-logo').style.display='block';">
             <div id="fallback-logo" class="logo-text" style="display: none;">AVINA JEWELS</div>
         </div>
         
-        <h1 class="title">Our Jewelry Catalog<br>is Coming Soon</h1>
-        
-        <p class="subtitle">We are finalizing a breathtaking collection of fine jewelry. <br> Be the first to experience brilliance and modern luxury.</p>
-        
-        <form class="notify-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing! We will notify you once the catalog is live.');">
-            <input type="email" class="notify-input" placeholder="Enter your email address" required>
-            <button type="submit" class="notify-btn">Notify Me</button>
-        </form>
+        <h1 class="title">AVINA JEWELS<br>Catalog</h1>
+
+        <p class="subtitle">Explore our breathtaking collection of fine jewelry — <br> brilliance, craftsmanship, and modern luxury.</p>
+
+        <a href="catalog.html" style="
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2.8rem;
+            background: #80011f;
+            color: #fff9eb;
+            border-radius: 4px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 500;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            animation: fade-up 1.2s ease-out 0.9s forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        " onmouseover="this.style.background='#9e0226'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 10px 30px rgba(128,1,31,0.35)'"
+           onmouseout="this.style.background='#80011f'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+            &#9654;&nbsp; View Catalog
+        </a>
 
         <div class="decor-line"></div>
     </div>
